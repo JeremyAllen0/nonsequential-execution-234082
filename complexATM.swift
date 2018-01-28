@@ -1,8 +1,8 @@
 // Allen ISD Computer Science Assignment
 // Non-sequential Project | complexATM
-// John Williams
-// Computer Science I, Period 1
-// 2018.01.23
+// Zayam Tariq
+// Computer Science I, Period 2
+// 2018.01.26
 
 
 /*
@@ -28,3 +28,44 @@
 
 // Continue with your code here
 
+assert(CommandLine.arguments.count == 2, "Exactly one argument is required")
+assert(Int(CommandLine.arguments[1]) != nil, "Argument must be an integer") 
+let moneyRequested = Int(CommandLine.arguments[1])!
+print("ATM WILL NOW DISPENSE YOUR MONEY FOR YOU!!!! WARNING, IF THE NUMBER IS NOT A MULTIPLE OF 5, IT WILL NOT WORK")
+
+
+if moneyRequested % 5 == 0
+{
+    if moneyRequested < 20 {
+    let numberBills = moneyRequested/5
+    for BillValue5 in 1...numberBills{
+        print("$5.00")
+    }
+    }
+
+    
+
+
+
+
+    if  moneyRequested >= 20 {
+        let numberBills = moneyRequested/20
+        for BillValue20 in 1...numberBills{
+        print("20.00")
+        }
+        let moneyRemaining =  moneyRequested % 20
+        if moneyRemaining <= 15 {
+            let numberBills = moneyRemaining/5
+            for BillValue5 in 1...numberBills{
+                print("$5.00")
+
+            
+            }  
+        } 
+    }
+}
+else {
+    print("ERROR, MONEY CAN NOT BE PRINTED:choose an amount thats a multiple of 5")
+
+
+}

@@ -1,8 +1,8 @@
 // Allen ISD Computer Science Assignment
 // Non-sequential Project | multiplicationTable
-// John Williams
-// Computer Science I, Period 1
-// 2018.01.23
+// Zayam Tariq
+// Computer Science I, Period 2
+// 2018.01.26
 
 
 /*
@@ -30,3 +30,30 @@
 
 // Continue with your code here
 
+let x = Int((CommandLine.arguments[1]))!// x is multiplication table size
+let i = 0//program counter number 1
+let q = 0
+print(terminator:"   ")
+for q in 1...x{
+    if q < 10 {
+        print (terminator:"   "); print(q,terminator:"")
+    }
+    else {print (terminator:"  "); print(q,terminator:"")}
+}
+print ("")
+for i in 1...x {
+    if i<10 {
+        print (terminator:" "); print(i, " ",terminator:"")
+    }
+    else{ print(i, " ",terminator:"")}
+    let j = 0
+    for j in 1...x {
+        let mo = j*i//mo stands for multiplication operator
+        if mo < 10 {
+            print (terminator:"  "); print (mo, terminator:" ")
+        } else if 9 < mo && mo < 100 {
+            print (terminator:" "); print (mo,terminator:" ")
+        } else {print (mo, terminator:" ")}
+    }
+    print (" ")
+}   

@@ -30,8 +30,8 @@
 
 // Continue with your code here
 
-let x = Int((CommandLine.arguments[1]))!// x is multiplication table size
-let i = 0//program counter number 1
+let x = Int((CommandLine.arguments[1]))!
+let i = 0
 let q = 0
 print(terminator:"   ")
 for q in 1...x{
@@ -48,7 +48,7 @@ for i in 1...x {
     else{ print(i, " ",terminator:"")}
     let j = 0
     for j in 1...x {
-        let mo = j*i//mo stands for multiplication operator
+        let mo = j*i
         if mo < 10 {
             print (terminator:"  "); print (mo, terminator:" ")
         } else if 9 < mo && mo < 100 {

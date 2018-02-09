@@ -28,44 +28,29 @@
 
 // Continue with your code here
 
+func dispenseBills(dollarValue:Int, typeOfBill:Int) -> Int {
+    let billsToDispense = dollarValue / typeOfBill
+    var moneyRemaining = dollarValue
+    for _ in 0 ..< billsToDispense {
+        print("$\(typeOfBill).00 dispensed")
+        moneyRemaining -= typeOfBill
+    }
+
+    return moneyRemaining
+}
+
+// The following assertions make clear the assumptions that your program is making
 assert(CommandLine.arguments.count == 2, "Exactly one argument is required")
-assert(Int(CommandLine.arguments[1]) != nil, "Argument must be an integer") 
-let moneyRequested = Int(CommandLine.arguments[1])!
-print("ATM WILL NOW DISPENSE YOUR MONEY FOR YOU!!!! WARNING, IF THE NUMBER IS NOT A MULTIPLE OF 5, IT WILL NOT WORK")
+assert(Int(CommandLine.arguments[1]) != nil, "Argument must be an integer")
 
 
-if moneyRequested % 5 == 0
-{
-    if moneyRequested < 20 {
-    let numberBills = moneyRequested/5
-    for BillValue5 in 1...numberBills{
-        print("$5.00")
-    }
-    }
-
-    
+// Read the integer value from the command line.
+// Note that we've verified above, via the assertions, that we definitely have an integer argument
+let dollarValueRequested = Int(CommandLine.arguments[1])!
+assert(dollarValueRequested % 5 == 0, "Dollar value requested must be evenly divisible by $5.00")
 
 
-
-
-    if  moneyRequested >= 20 {
-        let numberBills = moneyRequested/20
-        for BillValue20 in 1...numberBills{
-        print("20.00")
-        }
-        let moneyRemaining =  moneyRequested % 20
-        if moneyRemaining <= 15 {
-            let numberBills = moneyRemaining/5
-            for BillValue5 in 1...numberBills{
-                print("$5.00")
-
-            
-            }  
-        } 
-    }
-}
-else {
-    print("ERROR, MONEY CAN NOT BE PRINTED:choose an amount thats a multiple of 5")
-
-
-}
+var dollarValueRemaining = dollarValueRequested
+dollarValueRemaining = dispenseBills(dollarValue: dollarValueRemaining, typeOfBill:100)
+dollarValueRemaining = dispenseBills(dollarValue: dollarValueRemaining, typeOfBill:20)
+_ = dispenseBills(dollarValue: dollarValueRemaining, typeOfBill:5)
